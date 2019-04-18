@@ -1,0 +1,21 @@
+# This is an Ansible inventory file in INI format. You can define a list of
+# hosts and groups to be managed by this particular inventory.
+#
+# Connection information can be added to groups, more information is
+# documented at: 
+# https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+#
+# Full perfSONAR hosts inventory grouped by installation bundle
+[all:vars]
+
+[ps-testpoints]
+
+[ps-toolkits]
+
+[ps-archives]
+
+[ps-maddash]
+
+[ps-psconfig-publishers]
+
+[ps-psconfig-web-admin]
