@@ -4,27 +4,24 @@ playbook for perfSONAR deployment and config
 
 Clone this repository:
 
-    git clone git@github.com:epcjr/ansible-perfsonar-deploy.git
-    cd ansible-perfsonar-deploy
+    git clone git@github.com:perfsonar/ansible-playbook-perfsonar.git
+    cd ansible-playbook-perfsonar
 
 Get the required roles (note that we ignore errors so we can run this multiple times):
 
     ansible-galaxy install -r  requirements.yml --ignore-errors
 
-Set up your invintory:
+Set up your invintory.  Connection variables can be added here as well.
 
     vi invintory/hosts
 
-Set up perfSONAR variables:
+Set up perfSONAR variables by running the defaults.sh script and then editing them:
 
-    vi inventory/group_vars/all/perfsonar.yml
+    ./defaults.sh
+    vi inventory/group_vars/all/*
 
-Set up connection variables (might need to handle vault secrets):
-
-    vi inventory/group_vars/all/login.yml
-    
 Run the playbook:
 
-    ansible-playbook --ask-vault-pass perfsonar.yml
+    ansible-playbook perfsonar.yml
 
 
