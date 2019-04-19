@@ -5,6 +5,9 @@
 # documented at: 
 # https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 #
+# A way to check that all of your expected hosts are accessable is:
+# ansible all -m ping --ask-become-pass
+#
 # Full perfSONAR hosts inventory grouped by installation bundle
 [all:vars]
 ansible_become=True
