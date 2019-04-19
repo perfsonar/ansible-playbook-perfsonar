@@ -7,6 +7,9 @@
 #
 # Full perfSONAR hosts inventory grouped by installation bundle
 [all:vars]
+ansible_become=True
+ansible_become_user=root
+#ansible_become_method=su
 
 [ps-testpoints]
 
