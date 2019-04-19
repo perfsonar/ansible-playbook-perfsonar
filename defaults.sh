@@ -13,5 +13,7 @@ cp -i roles/ansible-role-perfsonar-psconfig-web-admin/defaults/main.yml \
   inventory/group_vars/all/perfsonar/ps_pwa.yml
 cp -i roles/ansible-role-perfsonar-testpoint/defaults/main.yml \
   inventory/group_vars/all/perfsonar/ps_testpoint.yml
+cp -i roles/ansible-role-perfsonar-testpoint/defaults/lsregistration.yml \
+  inventory/host_vars/
 cp -i roles/ansible-role-perfsonar-toolkit/defaults/main.yml \
   inventory/group_vars/all/perfsonar/ps_toolkit.yml
