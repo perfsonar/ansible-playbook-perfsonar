@@ -9,19 +9,13 @@
 [all:vars]
 
 [ps-testpoints]
-psdell1.ilab.umnet.umich.edu
 
 [ps-toolkits]
-psdell2.ilab.umnet.umich.edu
 
 [ps-archives]
-psdell3.ilab.umnet.umich.edu
 
 [ps-maddash]
-psdell4.ilab.umnet.umich.edu
 
 [ps-psconfig-publishers]
-psdell4.ilab.umnet.umich.edu
 
 [ps-psconfig-web-admin]
-psdell6.ilab.umnet.umich.edu
