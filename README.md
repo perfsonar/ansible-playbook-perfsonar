@@ -20,6 +20,11 @@ Set up perfSONAR variables by running the defaults.sh script and then editing th
     ./defaults.sh
     vi inventory/group_vars/all/*
 
+Set up individual host variables with the lsregistration.yml template
+
+    cp inventory/lsregistration.yml inventory/host_vars/myhostname.yml
+    vi inventory/host_vars/myhostname.yml
+
 Run the playbook:
 
     ansible-playbook perfsonar.yml
