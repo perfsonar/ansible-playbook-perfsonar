@@ -11,9 +11,9 @@ Get the required roles (note that we ignore errors so we can run this multiple t
 
     ansible-galaxy install -r  requirements.yml --ignore-errors
 
-Set up your invintory.  Connection variables can be added here as well.
+Set up your inventory.  Connection variables can be added here as well.
 
-    vi invintory/hosts
+    vi inventory/hosts
 
 Set up perfSONAR variables by running the defaults.sh script and then editing them:
 
