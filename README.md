@@ -4,7 +4,7 @@ playbook for perfSONAR deployment and config
 
 Clone this repository:
 
-    git clone git@github.com:perfsonar/ansible-playbook-perfsonar.git
+    git clone https://github.com/perfsonar/ansible-playbook-perfsonar.git
     cd ansible-playbook-perfsonar
 
 Get the required roles (note that we ignore errors so we can run this multiple times):
