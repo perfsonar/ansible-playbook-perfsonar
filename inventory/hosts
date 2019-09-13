@@ -13,9 +13,6 @@
 ansible_become=True
 ansible_become_user=root
 #ansible_become_method=su
-#
-# passwords can be encrypted via ansible-vault
-# ansible-vault encrypt_string --stdin-name=ansible_become_password
 
 [ps-testpoints]
 
