@@ -43,3 +43,39 @@ Run the playbook:
 ansible-playbook perfsonar.yml
 ```
 
+---
+
+Some useful commands to manage the environment:
+
+Manage PWA users:
+```
+vi /inventory/group_vars/all/perfsonar/ps_pwa.yml
+ansible-playbook \
+  --limit 'ps-psconfig-web-admin' --tags 'ps::pwa_users'\
+  perfsonar.yml
+```
+
+Display PWA users:
+```
+ansible ps-psconfig-web-admin \
+  -a "docker exec -it sca-auth pwa_auth listuser --short"
+```
+
+Display PWA users, all atributes:
+```
+ansible ps-psconfig-web-admin \
+  -a "docker exec -it sca-auth pwa_auth listuser"
+```
+  
+Reset Password for PWA user from the command line:
+```
+ansible ps-psconfig-web-admin \
+  -a "docker exec -it sca-auth pwa_auth setpass \
+  --username user --password newpasswd"
+```
+
+Reset Password for PWA user interactively:
+```
+ansible-playbook \
+  roles/ansible-role-perfsonar-psconfig-web-admin/playbooks/pwa_passwd_reset.yml
+```
