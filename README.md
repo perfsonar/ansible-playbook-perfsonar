@@ -37,6 +37,12 @@ cp roles/ansible-role-perfsonar-testpoint/defaults/lsregistration.yml \
 vi inventory/host_vars/myhostname/lsregistration.yml
 ```
 
+Use Ansible ping to verify connectivity to targets:
+
+```
+ansible all -m ping
+```
+
 Run the playbook:
 
 ```
