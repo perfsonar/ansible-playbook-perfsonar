@@ -31,8 +31,10 @@ vi inventory/group_vars/all/*
 Set up individual host variables with the lsregistration.yml template
 
 ```
-cp inventory/lsregistration.yml inventory/host_vars/myhostname.yml
-vi inventory/host_vars/myhostname.yml
+mkdir inventory/host_vars/myhostname
+cp roles/ansible-role-perfsonar-testpoint/defaults/lsregistration.yml \
+  inventory/host_vars/myhostname
+vi inventory/host_vars/myhostname/lsregistration.yml
 ```
 
 Run the playbook:

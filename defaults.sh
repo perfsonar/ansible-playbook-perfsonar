@@ -14,11 +14,6 @@ mkdir -p $directory/host_vars/
 wget -q -P $directory -nc \
   https://raw.githubusercontent.com/perfsonar/ansible-playbook-perfsonar/master/inventory/hosts
 
-if ! [ -f $directory/lsregistration.yml ]; then
-  cp roles/ansible-role-perfsonar-testpoint/defaults/lsregistration.yml \
-    $directory/
-fi
-
 if ! [ -f $directory/group_vars/all/perfsonar/ps_archive.yml ]; then
   cp roles/ansible-role-perfsonar-archive/defaults/main.yml \
     $directory/group_vars/all/perfsonar/ps_archive.yml
