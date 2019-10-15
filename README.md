@@ -45,7 +45,7 @@ ansible-playbook perfsonar.yml
 
 ---
 
-Some useful commands to manage the environment:
+**Some useful commands to manage the environment**
 
 Manage PWA users:
 ```
