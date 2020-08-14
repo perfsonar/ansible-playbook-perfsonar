@@ -25,7 +25,7 @@ Set up perfSONAR variables by running the defaults.sh script and then editing th
 
 ```
 ./defaults.sh
-vi inventory/group_vars/all/perfsonar/*
+vi inventory/group_vars/ps_*
 ```
 
 Set up individual host variables with the lsregistration.yml template
@@ -55,7 +55,7 @@ ansible all -m ping
 
 Manage PWA users:
 ```
-vi /inventory/group_vars/all/perfsonar/ps_pwa.yml
+vi /inventory/group_vars/ps_pconfig_web_admin.yml
 ansible-playbook \
   --limit 'ps-psconfig-web-admin' --tags 'ps::pwa_users'\
   perfsonar.yml
