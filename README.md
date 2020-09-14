@@ -25,7 +25,7 @@ Set up perfSONAR variables by running the defaults.sh script and then editing th
 
 ```
 ./defaults.sh
-vi inventory/group_vars/all/*
+vi inventory/group_vars/all/perfsonar/*
 ```
 
 Set up individual host variables with the lsregistration.yml template
