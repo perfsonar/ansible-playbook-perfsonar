@@ -14,14 +14,15 @@ ansible_become=True
 ansible_become_user=root
 #ansible_become_method=su
 
-[ps-testpoints]
+[ps_testpoint]
 
-[ps-toolkits]
+[ps_toolkit]
 
-[ps-archives]
+[ps_archive]
 
-[ps-maddash]
+[ps_maddash]
 
-[ps-psconfig-publishers]
+[ps_psconfig_publisher]
 
-[ps-psconfig-web-admin]
+[ps_psconfig_web_admin]
+

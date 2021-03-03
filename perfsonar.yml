@@ -4,7 +4,7 @@
   tags: 
     - archives
   hosts:
-    - ps-archives
+    - ps_archive
   roles:
     - ansible-role-perfsonar-archive
 
@@ -12,7 +12,7 @@
   tags: 
     - maddash
   hosts:
-    - ps-maddash
+    - ps_maddash
   roles:
     - ansible-role-perfsonar-maddash
 
@@ -20,7 +20,7 @@
   tags: 
     - testpoints
   hosts:
-    - ps-testpoints
+    - ps_testpoint
   roles:
     - ansible-role-perfsonar-testpoint
 
@@ -28,7 +28,7 @@
   tags: 
     - toolkits
   hosts:
-    - ps-toolkits
+    - ps_toolkit
   roles:
     - ansible-role-perfsonar-toolkit
 
@@ -36,7 +36,7 @@
   tags: 
     - psconfig-publishers
   hosts:
-    - ps-psconfig-publishers
+    - ps_psconfig_publisher
   roles:
     - ansible-role-perfsonar-psconfig-publisher
 
@@ -44,7 +44,7 @@
   tags: 
     - psconfig-web-admin
   hosts:
-    - ps-psconfig-web-admin
+    - ps_psconfig_web_admin
   roles:
     - ansible-role-perfsonar-psconfig-web-admin
 
