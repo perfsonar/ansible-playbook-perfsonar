@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
       "ps_testpoint" => ["centos7", "ubuntu18"],
       "ps_testpoint:vars" => {
 	"perfsonar_archive_auth_interfaces" => "{{ ansible_all_ipv4_addresses }}",
-	"perfsonar_archive_hosts" => "{{ groups['ps-archive'] }}"
+	"perfsonar_archive_hosts" => "{{ groups['ps_archive'] }}"
       },
       "ps_archive" => ["esmond"]
     }
