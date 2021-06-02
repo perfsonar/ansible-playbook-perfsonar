@@ -68,12 +68,12 @@ Vagrant.configure("2") do |config|
 	"ansible_become_method" => "sudo",
 	"perfsonar_os_update" => "False"
       },
-      "ps-testpoints" => ["centos7", "ubuntu18"],
-      "ps-testpoints:vars" => {
+      "ps_testpoint" => ["centos7", "ubuntu18"],
+      "ps_testpoint:vars" => {
 	"perfsonar_archive_auth_interfaces" => "{{ ansible_all_ipv4_addresses }}",
 	"perfsonar_archive_hosts" => "{{ groups['ps-archives'] }}"
       },
-      "ps-archives" => ["esmond"]
+      "ps_archive" => ["esmond"]
     }
     ansible.limit = "all",
     ansible.playbook = "perfsonar.yml"
