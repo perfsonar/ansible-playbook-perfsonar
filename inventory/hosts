@@ -13,16 +13,28 @@
 ansible_become=True
 ansible_become_user=root
 #ansible_become_method=su
+ansible_ssh_user=centos
+ansible_ssh_private_key_file=/Users/audrey/git/tamu/aggie-innovation-platform/tf-packer-perfsonar/instances/aws/tf_perfsonar_rsa.pem
 
 [ps_testpoint]
 
 [ps_toolkit]
+aws1.perfsonar.cloud.tamu.edu
+aws2.perfsonar.cloud.tamu.edu
+azure1.perfsonar.cloud.tamu.edu ansible_ssh_private_key_file=/Users/audrey/.ssh/perfsonar
 
 [ps_archive]
+archive.perfsonar.cloud.tamu.edu
 
 [ps_maddash]
+maddash.perfsonar.cloud.tamu.edu
 
 [ps_psconfig_publisher]
+psconfig.perfsonar.cloud.tamu.edu
+
+[ps_psconfig_web_admin:vars]
+ansible_python_interpreter=/usr/bin/python3
 
 [ps_psconfig_web_admin]
+pwa.perfsonar.cloud.tamu.edu
 
