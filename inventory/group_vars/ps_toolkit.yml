@@ -1,0 +1,12 @@
+---
+# defaults file for perfsonar-toolkit
+
+# Credentials to use to connect to the perfSONAR web admin GUI
+perfsonar_web_user: psadmin
+perfsonar_web_passwd: testperf
+
+# Additional packages to be installed on the perfSONAR host
+# python(|3)-passlib is needed to set the webadmin password
+perfsonar_optional_packages:
+  - python-passlib
+#  - python3-passlib

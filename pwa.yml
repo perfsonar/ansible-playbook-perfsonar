@@ -1,0 +1,7 @@
+- name: perfSONAR ps-config-web-admin
+  tags:
+    - psconfig-web-admin
+  hosts:
+    - ps_psconfig_web_admin
+  roles:
+    - ansible-role-perfsonar-psconfig-web-admin

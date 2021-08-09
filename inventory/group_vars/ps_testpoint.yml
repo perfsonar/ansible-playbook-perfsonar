@@ -1,0 +1,78 @@
+---
+# defaults file for perfsonar-testpoint
+
+#####
+# This first set of variables should be adapted for your deployment.
+
+# Additional perfSONAR packages to be installed on the perfSONAR host
+# See list at http://docs.perfsonar.net/install_debian.html#optional-packages
+# If you don't want any optional package to be installed, make this an empty list.
+#perfsonar_optional_packages: []
+perfsonar_optional_packages:
+  - perfsonar-toolkit-ntp
+  - perfsonar-toolkit-security
+  - perfsonar-toolkit-servicewatcher
+  - perfsonar-toolkit-sysctl
+  - perfsonar-toolkit-systemenv-testpoint
+
+# List of NTP servers you want to use on your perfSONAR hosts
+# If empty, any already configured NTP server will not be changed
+# If you also install the 'perfsonar-toolkit-ntp' package below, the perfSONAR
+# provided script will choose the closest NTP servers for you.
+perfsonar_ntp_servers: []
+#perfsonar_ntp_servers: 
+#  - { name: "NTP 1", hostname: ntp.switch.ch }
+#  - { name: "NTP 2", hostname: 0.ch.pool.ntp.org }
+#  - { name: "NTP 3", hostname: 1.ch.pool.ntp.org }
+#  - { name: "NTP 4", hostname: 2.ch.pool.ntp.org }
+#  - { name: "NTP 5", hostname: 3.ch.pool.ntp.org }
+
+# You can change the default variables for different platforms to which clock synchronization service to use.
+# You can use chrony/chronyd instead of ntp
+
+timesync_service:
+        Debian: ntp
+        RedHat: ntpd
+        default: ntp
+
+ntp_service: "{{ timesync_service[ansible_os_family] | default(timesync_service['default']) }}"
+
+# Disable ssh root access
+perfsonar_disable_root_ssh: True
+
+# psconfig related setup
+# A list of remotes you want to use on your perfsonar-testpoint node
+# Each item in the list must contain the remote URL
+# Each item in the list must define its state ('present' or 'absent')
+# Each item may optionally use the configure_archives option to enable results to be archived.
+#
+# Example:
+# perfsonar_psconfig_remote_remotes:
+#   - url: https://central.perfsonar.utr.surfcloud.nl/psconfig/astron-mesh.json
+#     state: present
+#     configure_archives: False
+#   - url: https://central.perfsonar.utr.surfcloud.nl/psconfig/astron-mesh.json
+#     state: present
+#     configure_archives: True
+#   - url: https://central.astron.pert.edu/psconfig/astron-mesh.json
+#     state: absent
+# If the list is empty or the variable undefined, no remote will be added nor removed.
+perfsonar_psconfig_remote_remotes: []
+
+# setting the perfsonar_archive-* variables will register testpoints with the archivers
+perfsonar_archive_auth_interfaces: []
+#  - "{{ ansible_all_ipv4_addresses }}"
+perfsonar_archive_hosts: []
+#  - "{{ groups['ps-archives'] }}"
+perfsonar_archive_uid: perfsonar
+
+#####
+# The variables here below shouldn't need to be altered for your deployment, unless you know what you're doing.
+
+# List of perfSONAR services to make sure are running
+# We define the list as a reference to another list, so that we can merge and override in other roles
+perfsonar_services: "{{ perfsonar_testpoint_services }}"
+perfsonar_os_specific_services: "{{ perfsonar_testpoint_os_specific_services }}"
+
+# perfSONAR bundle to install
+perfsonar_bundle: perfsonar-testpoint

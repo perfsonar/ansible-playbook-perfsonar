@@ -1,0 +1,42 @@
+---
+# defaults file for perfsonar-psconfig-web-admin
+
+# set to yes to pull most recent images
+perfsonar_pwa_docker_pull_image: no
+perfsonar_pwa_docker_config_dir: /etc/docker
+perfsonar_pwa_docker_data_root: /usr/local
+perfsonar_pwa_docker_network: pwa
+perfsonar_pwa_cert_path: /etc/pwa/nginx/certs
+perfsonar_pwa_email_address: <email_address>
+perfsonar_pwa_selinux_disable: True
+perfsonar_pwa_fqdn: "{{ inventory_hostname }}"
+
+# perfsonar_psconfig_publish_remote_agents: "{{ groups['ps-maddash'] }}
+#     + {{ groups['ps-toolkits'] }}
+#     + {{ groups['ps-testpoints'] }}"
+
+# 
+# This section is for managing PWA local user accounts.
+#
+# If perfsonar_pwa_user_default_domain is set, any account created without
+# an email address expressly defined will use
+# `username@perfsonar_pwa_user_default_domain` by default.
+#
+perfsonar_pwa_user_default_domain: 
+
+# When perfsonar_pwa_user_purge is True, accounts not listed in
+# perfsonar_pwa_user_list will be deleted.
+#
+perfsonar_pwa_user_purge: False
+
+# Accounts REQUIRE:
+#   - username
+#   - fullname
+#   - EITHER email OR perfsonar_pwa_user_default_domain defined
+perfsonar_pwa_user_list:
+#  - username:
+#    fullname:
+#    email:
+#    password:
+#    password_reset: True
+#    scope: ['user', 'admin']

@@ -1,0 +1,52 @@
+---
+# defaults file for perfsonar-psconfig-publisher
+#
+# A curl command can be used to download a skeleton mesh file for local
+# customization and publication.
+#
+# curl -k https://raw.githubusercontent.com/perfsonar/psconfig/master/doc/skeleton.json > files/my_mesh.json
+#
+# In order to publish a mesh, give it an entry in the
+# perfsonar_psconfig_publish_meshes list.  The subelements
+# are as follows:
+#
+# mesh: required.  filename of mesh copied to the remote_dir.  if remote_url
+#   is not set, this filename is looked for in the Ansible "files" directory
+#   in the Playbook or Role.
+#
+# remote_url: defaults to ''.  if this is set, get the mesh file to copy to
+#   the remote_dir from the URL, not a local "files" directory.
+#
+# remote_dir: defaults to /tmp.  directory on target machine for mesh file.
+#
+# remote_agents: defaults to [].  a list of Ansible managed machines.
+#   Ansible will try to use psconfig on each host to add the published
+#   mesh's URL.  You can add Ansible host groups.
+#
+# remote_configure_archives: default to False.  Set to True if you want the
+#   remote_agents to send results to archivers defined in the json mesh file.
+#
+# perfsonar_psconfig_publish_meshes:
+#   - mesh: filename
+#     remote_url: url
+#     remote_dir: /tmp
+#     remote_agents: "{{ groups['ps_maddash'] }}
+#       + {{ groups['ps_toolkit'] }}
+#       + {{ groups['ps_testpoint'] }}"
+#     remote_configure_archives: True
+
+perfsonar_psconfig_publish_meshes:
+  - mesh: tamu-mesh.json
+#    remote_url: url
+    remote_dir: /tmp
+    remote_agents: "{{ groups['ps_maddash'] }}
+      + {{ groups['ps_toolkit'] }}
+      + {{ groups['ps_testpoint'] }}"
+    remote_configure_archives: True
+
+#perfsonar_psconfig_publish_meshes:
+#  - mesh: filename
+#    remote_url: 'http://pwa.perfsonar.cloud.tamu.edu/pub/config/tamu1'
+#    remote_agents: "{{ groups['ps_maddash'] }}
+#      + {{ groups['ps_toolkit'] }}
+#      + {{ groups['ps_testpoint'] }}"

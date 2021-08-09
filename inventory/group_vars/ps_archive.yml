@@ -1,0 +1,14 @@
+---
+# defaults file for perfsonar-archive
+
+# perfsonar_archive_auth_list entries have three elements:
+#   address: ip address
+#   state: absent or present
+#   user: the user associated with the entry
+#
+# example:
+# perfsonar_archive_auth_list:
+#  - address: ip_addr
+#    state: [ present | absent ]
+#    user: perfsonar
+perfsonar_archive_auth_list: []

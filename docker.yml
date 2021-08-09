@@ -1,0 +1,9 @@
+# perfsonar.yml main perfSONAR config
+
+- name: perfSONAR docker
+  tags: 
+    - psconfig-web-admin
+  hosts:
+    - ps_psconfig_web_admin
+  roles:
+    - ansible-role-perfsonar-docker

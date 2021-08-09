@@ -1,0 +1,98 @@
+{
+    "_meta":{
+        "display-name": "Example Measurements"
+    },
+    
+    "addresses": {
+        "aws1": { "address": "aws1.perfsonar.cloud.tamu.edu" },
+        "aws2": { "address": "aws2.perfsonar.cloud.tamu.edu" }
+    },
+    
+    "groups": {
+        "example_group_mesh": {
+            "type": "mesh",
+            "addresses": [
+                { "name": "aws1.perfsonar.cloud.tamu.edu" },
+                { "name": "aws2.perfsonar.cloud.tamu.edu" }
+            ]
+        },
+        
+        "example_group_disjoint": {
+            "type": "disjoint",
+            "a-addresses": [
+                { "name": "aws1.perfsonar.cloud.tamu.edu" }
+            ],
+            "b-addresses": [
+                { "name": "aws2.perfsonar.cloud.tamu.edu" }
+            ]
+        }
+    },
+    
+    "tests": {
+        "example_test_throughput": {
+            "type": "throughput",
+            "spec": {
+                "source": "{% address[0] %}",
+                "dest": "{% address[1] %}",
+                "duration": "PT30S"
+            }
+        },
+        "example_test_latencybg": {
+            "type": "latencybg",
+            "spec": {
+                "source": "{% address[0] %}",
+                "dest": "{% address[1] %}",
+                "flip": "{% flip %}"
+            }
+        },
+        "example_test_trace": {
+            "type": "trace",
+            "spec": {
+                "source": "{% address[0] %}",
+                "dest": "{% address[1] %}"
+            }
+        }
+    },
+    
+    "schedules": {
+        "example_schedule_PT4H": {
+            "repeat": "PT4H",
+            "sliprand": true,
+            "slip": "PT4H"
+        },
+        "example_schedule_PT10M": {
+            "repeat": "PT10M",
+            "sliprand": true,
+            "slip": "PT10M"
+        }
+    },
+    
+    "tasks": {
+        "example_task_throughput": {
+            "group": "example_group_mesh",
+            "test": "example_test_throughput",
+            "schedule": "example_schedule_PT4H",
+            "archives": [ "example_esmond_archive" ],
+            "_meta": {
+                "display-name": "Example Throughput Tests"
+            }
+        },
+        "example_task_latencybg": {
+            "group": "example_group_mesh",
+            "test": "example_test_latencybg",
+            "archives": [ "example_esmond_archive" ],
+            "_meta": {
+                "display-name": "Example Loss Tests"
+            }
+        },
+        "example_task_trace": {
+            "group": "example_group_mesh",
+            "test": "example_test_trace",
+            "schedule": "example_schedule_PT10M",
+            "archives": [ "example_esmond_archive" ],
+            "_meta": {
+                "display-name": "Example Traceroute Tests"
+            }
+        }
+    }
+}

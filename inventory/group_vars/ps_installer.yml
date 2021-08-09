@@ -1,0 +1,40 @@
+---
+# defaults file for perfsonar-installer
+
+#####
+# This role is meant to be inherited by other perfSONAR roles in order to
+# automate a standardized method for software installation.
+
+# The OS packages are updated (yum or apt) prior to install perfSONAR packages.
+# This is recommended as an outdated OS might contain security vulnerabilities.
+#
+#perfsonar_os_update: True
+#perfsonar_os_update: False
+#
+perfsonar_os_update: True
+
+# The perfSONAR repository you want to use on your systems
+# Can be any of:
+# release or "(patch|minor|4.x)-(staging|snapshot)" for Debian/Ubuntu systems
+# release, nightly-patch, nightly-minor or stagging for CentOS systems
+#
+#perfsonar_release: release
+#perfsonar_release: nightly-patch
+#perfsonar_release: 4.4-snapshot
+#
+perfsonar_release: release
+
+# perfSONAR bundle to install
+# Refer to the list of all perfSONAR bundles at
+# http://docs.perfsonar.net/install_options.html
+#
+# This variable is meant to be set by other roles that depend on this one
+#
+# perfsonar_bundle: perfsonar-testpoint
+# perfsonar_bundle: perfsonar-toolkit
+# perfsonar_bundle: perfsonar-psconfig-publisher
+#
+# perfsonar_bundle: []
+
+# optional packages
+# perfsonar_optional_packages: []
