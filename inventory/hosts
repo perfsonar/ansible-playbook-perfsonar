@@ -21,6 +21,7 @@ ansible_ssh_private_key_file=/Users/audrey/git/tamu/aggie-innovation-platform/tf
 [ps_toolkit]
 aws1.perfsonar.cloud.tamu.edu
 aws2.perfsonar.cloud.tamu.edu
+gcp1.perfsonar.cloud.tamu.edu ansible_ssh_user=sa_103820116649512662515 ansible_ssh_private_key_file=./ssh-key-ansible-sa
 azure1.perfsonar.cloud.tamu.edu ansible_ssh_private_key_file=/Users/audrey/.ssh/perfsonar
 
 [ps_archive]
