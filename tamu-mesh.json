@@ -1,11 +1,11 @@
 {
     "_meta":{
-        "display-name": "Example Measurements"
+        "display-name": "TAMU Cloud Measurements"
     },
 
 
     "archives": {
-        "example_esmond_archive": {
+        "tamu_esmond_archive": {
             "archiver": "esmond",
             "data": {
                 "measurement-agent": "{% scheduled_by_address %}",
@@ -16,19 +16,23 @@
 
     "addresses": {
         "aws1": { "address": "aws1.perfsonar.cloud.tamu.edu" },
-        "aws2": { "address": "aws2.perfsonar.cloud.tamu.edu" }
+        "aws2": { "address": "aws2.perfsonar.cloud.tamu.edu" },
+        "azure1": { "address": "azure1.perfsonar.cloud.tamu.edu" },
+        "gcp1": { "address": "gcp1.perfsonar.cloud.tamu.edu" }
     },
     
     "groups": {
-        "example_group_mesh": {
+        "tamu_group_mesh": {
             "type": "mesh",
             "addresses": [
                 { "name": "aws1" },
-                { "name": "aws2" }
+                { "name": "aws2" },
+                { "name": "azure1" },
+                { "name": "gcp1" }
             ]
         },
         
-        "example_group_disjoint": {
+        "tamu_group_disjoint": {
             "type": "disjoint",
             "a-addresses": [
                 { "name": "aws1" }
@@ -40,7 +44,7 @@
     },
     
     "tests": {
-        "example_test_throughput": {
+        "tamu_test_throughput": {
             "type": "throughput",
             "spec": {
                 "source": "{% address[0] %}",
@@ -48,7 +52,7 @@
                 "duration": "PT30S"
             }
         },
-        "example_test_latencybg": {
+        "tamu_test_latencybg": {
             "type": "latencybg",
             "spec": {
                 "source": "{% address[0] %}",
@@ -56,7 +60,7 @@
                 "flip": "{% flip %}"
             }
         },
-        "example_test_trace": {
+        "tamu_test_trace": {
             "type": "trace",
             "spec": {
                 "source": "{% address[0] %}",
@@ -66,12 +70,12 @@
     },
     
     "schedules": {
-        "example_schedule_PT4H": {
+        "tamu_schedule_PT4H": {
             "repeat": "PT4H",
             "sliprand": true,
             "slip": "PT4H"
         },
-        "example_schedule_PT10M": {
+        "tamu_schedule_PT10M": {
             "repeat": "PT10M",
             "sliprand": true,
             "slip": "PT10M"
@@ -80,29 +84,29 @@
     
     "tasks": {
         "example_task_throughput": {
-            "group": "example_group_mesh",
-            "test": "example_test_throughput",
-            "schedule": "example_schedule_PT4H",
-            "archives": [ "example_esmond_archive" ],
+            "group": "tamu_group_mesh",
+            "test": "tamu_test_throughput",
+            "schedule": "tamu_schedule_PT4H",
+            "archives": [ "tamu_esmond_archive" ],
             "_meta": {
-                "display-name": "Example Throughput Tests"
+                "display-name": "TAMU Cloud Throughput Tests"
             }
         },
         "example_task_latencybg": {
-            "group": "example_group_mesh",
-            "test": "example_test_latencybg",
-            "archives": [ "example_esmond_archive" ],
+            "group": "tamu_group_mesh",
+            "test": "tamu_test_latencybg",
+            "archives": [ "tamu_esmond_archive" ],
             "_meta": {
-                "display-name": "Example Loss Tests"
+                "display-name": "TAMU Loss Tests"
             }
         },
         "example_task_trace": {
-            "group": "example_group_mesh",
-            "test": "example_test_trace",
-            "schedule": "example_schedule_PT10M",
-            "archives": [ "example_esmond_archive" ],
+            "group": "tamu_group_mesh",
+            "test": "tamu_test_trace",
+            "schedule": "tamu_schedule_PT10M",
+            "archives": [ "tamu_esmond_archive" ],
             "_meta": {
-                "display-name": "Example Traceroute Tests"
+                "display-name": "TAMU Traceroute Tests"
             }
         }
     }
