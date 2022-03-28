@@ -3,3 +3,4 @@ debug*
 *.log
 .vagrant
 certificates
+ansible
