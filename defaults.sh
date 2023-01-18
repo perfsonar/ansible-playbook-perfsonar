@@ -9,8 +9,10 @@ fi
 mkdir -p $directory/group_vars
 mkdir -p $directory/host_vars
 
-wget -q -P $directory -nc \
-  https://raw.githubusercontent.com/perfsonar/ansible-playbook-perfsonar/master/inventory/hosts
+if ! [ -e "$directory/hosts" ]; then
+    curl -s -o "$directory/hosts" \
+        "https://raw.githubusercontent.com/perfsonar/ansible-playbook-perfsonar/master/inventory/hosts"
+fi
 
 if ! [ -f $directory/group_vars/ps_archive.yml ]; then
   cp roles/ansible-role-perfsonar-archive/defaults/main.yml \
