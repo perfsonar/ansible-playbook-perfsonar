@@ -1,8 +1,15 @@
 # Install perfsonar roles
 - src: https://github.com/perfsonar/ansible-role-perfsonar-archive
+  version: origin/5.0
 - src: https://github.com/perfsonar/ansible-role-perfsonar-installer
+  version: origin/5.0
 - src: https://github.com/perfsonar/ansible-role-perfsonar-maddash
+  version: origin/5.0
 - src: https://github.com/perfsonar/ansible-role-perfsonar-testpoint
+  version: origin/5.0
 - src: https://github.com/perfsonar/ansible-role-perfsonar-toolkit
+  version: origin/5.0
 - src: https://github.com/perfsonar/ansible-role-perfsonar-psconfig-publisher
+  version: origin/5.0
 - src: https://github.com/perfsonar/ansible-role-perfsonar-psconfig-web-admin
+  version: origin/5.0
