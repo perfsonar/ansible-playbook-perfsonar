@@ -1,5 +1,7 @@
 An Ansible playbook to ease perfSONAR deployment and configuration.
 
+**This playbook is made for perfSONiAR version 5.0.x**
+
 ## Quick Start
 
 Clone this repository:
@@ -9,10 +11,10 @@ git clone https://github.com/perfsonar/ansible-playbook-perfsonar.git
 cd ansible-playbook-perfsonar
 ```
 
-Get the required roles (note that we ignore errors so we can run this multiple times):
+Get the required roles. Add your local roles or infrastructure roles if you need any.
 
 ```
-ansible-galaxy install -r  requirements.yml --ignore-errors
+ansible-galaxy install -r requirements.yml
 ```
 
 Set up perfSONAR variables by running the `defaults.sh` script and then editing them:
