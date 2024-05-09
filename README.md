@@ -1,6 +1,6 @@
 An Ansible playbook to ease perfSONAR deployment and configuration.
 
-**This playbook is made for perfSONiAR version 5.0.x**
+**This playbook is made for perfSONiAR version 5.1.x**
 
 ## Quick Start
 
